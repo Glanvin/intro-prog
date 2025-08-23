@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Midterm Activity 1</title>
+	<style type="text/css">
+		.form-design {
+			justify-content: center;
+			align-items: center;
+			font-family: Arial;
+			display: grid;
+			grid-column: 1;
+			padding: 15%;
+			background: rgb(160, 113, 120, 1);
+			color: white;
+		}
+
+		.result {
+			justify-content: center;
+			align-items: center;
+			font-family: Arial;
+			display: grid;
+			grid-column: 1;
+		}
+		.button-styled {
+			padding: 8px;
+			margin: 2px;
+			background: rgb(119, 98, 116, 1);
+			font-weight: bold;
+			color: white;
+		}
+
+		.input-styled {
+			padding: 8px;
+			margin: 2px;
+			border: 2px solid rgb(200, 204, 146, 1);
+			border-radius: 4px;
+		}
+
+		label {
+			color: white;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<div class="form-design">
+
+		<h1>Calculator</h1>
+		<h2>Enter 5 numbers in the blank fields!</h2>
+
+		<div class="form-design">
+			<!--Fields to inputted-->
+			<label>Number 1:</label>
+			<input class="input-styled" type="text" id="num1" placeholder="Enter a Number (e.g 25)" value="">
+		
+			<label>Number 2:</label>
+			<input class="input-styled" type="text" id="num2" placeholder="Enter a Number (e.g 25)" value="">
+		
+			<label>Number 3:</label>
+			<input class="input-styled" type="text" id="num3" placeholder="Enter a Number (e.g 25)" value="">
+		
+			<label>Number 4:</label>
+			<input class="input-styled" type="text" id="num4" placeholder="Enter a Number (e.g 25)" value="">
+		
+			<label>Number 5:</label>
+			<input class="input-styled" type="text" id="num5" placeholder="Enter a Number (e.g 25)" value="">
+
+			<h2 id="result"></h2>
+
+			<!--Creats a button adn style it with a onclick attribute to call a function when clicked-->
+			<button class="button-styled" onclick="onCalculate()">Submit</button>
+
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		function onCalculate() {
+			//Gets value for the 5 fields and turns into a integer
+			let num1 = parseInt(document.getElementById('num1').value);
+			let num2 = parseInt(document.getElementById('num2').value);
+			let num3 = parseInt(document.getElementById('num3').value);
+			let num4 = parseInt(document.getElementById('num4').value);
+			let num5 = parseInt(document.getElementById('num5').value);
+
+			//Calculates the values of num1-5
+			const sum = num1 + num2 + num3 + num4 + num5;
+			const diff = num2 + num3 + num4 + num5 - num1;
+			const product = num1 * num2* num3 * num4 * num5;
+			const division = num1 / num2 / num3 / num4 / num5;
+
+			//Gets the element id that matches and replaces with the result of the sum, diff, product, and division
+			document.getElementById('result').innerHTML = `
+			Your result in addition is ${sum}. <br>
+			Your result in subraction is ${diff}. <br>
+			Your result in multiplication is ${product}. <br>
+			Your result in addition is ${division}.
+		`
+		}
+
+	</script>
+</body>
+</html>

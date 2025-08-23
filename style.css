@@ -1,0 +1,32 @@
+body {
+    font-family: Arial;
+    background: lightblue;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+}
+
+a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.content-box {
+    background: mediumslateblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.activities-box {
+    background: cornflowerblue;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 4px;
+    padding: 12px;
+}

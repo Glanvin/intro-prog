@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 4</title>
+    <style>
+        /* Styles the body. */
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial;
+            background: lightcyan;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles the #update button. */
+        #update {
+            background: purple;
+        }
+
+        /* Styles the #reset button. */
+        #reset {
+            background: crimson;
+        }
+
+        /* Styles the button element. */
+        button {
+            width: 100px;
+            height: 24px;
+            margin: 4px;
+            border: none;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            color: bisque;
+        }
+
+        /* Styles the input element. */
+        input {
+            margin: 4px;
+            text-align: center;
+            border-radius: 4px;
+            border: none;
+        }
+
+        /* Styles the input:focus state. */
+        input:focus {
+            outline: 2px solid coral;
+        }
+
+        /* Styles the .content class. */
+        .content {
+            background: cornflowerblue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            margin: 12px;
+            padding: 8px;
+            border-radius: 20px;
+            width: 500px;
+        }
+        
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .content::after, .content::before {
+            content: '';
+            position: absolute;
+            background-image: conic-gradient(from var(--angle), #034732, #008148, #C6C013, #EF8A17, #EF2917, #034732);
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            padding: 3px;
+            z-index: -1;
+            animation: 3s spin linear infinite;
+        }
+
+        .content::before {
+            filter: blur(1.5rem);
+        }
+
+        @keyframes spin {
+            from {
+                --angle: 0deg
+            }
+
+            to {
+                --angle: 360deg
+            }
+        }
+
+        /* Styles the .input-box class. */
+        .input-box {
+            background: cadetblue;
+            padding: 2px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="content">
+        <h1 id="title">MY ASSESSMENT TITLE</h1>
+        <p id="fullName">MY FULL NAME</p>
+
+        <div class="input-box">
+            <input type="text" id="newTitle" placeholder="Title">
+            <input type="text" id="newName" placeholder="Full Name">
+            <button id="update" onclick="UpdateContent()">Update</button>
+            <button id="reset" onclick="ResetContent()">Reset</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /* Gets the input elements by their ID and stores them in variables. */
+        let newTitle = document.getElementById('newTitle');
+        let newName = document.getElementById('newName');
+        
+        /* Updates the title and name on the page with the input values. */
+        function UpdateContent() {
+            if(newTitle.length > 0 && newName.length > 0) {
+                /* Updates the inner HTML of the title element with the new title. */
+                document.getElementById('title').innerHTML = newTitle.value.trim();
+                /* Updates the inner HTML of the full name element with the new name. */
+                document.getElementById('fullName').innerHTML = newName.value.trim();
+                /* Clears the value of the newTitle input field. */
+                newTitle.value = "";
+                /* Clears the value of the newName input field. */
+                newName.value = "";
+            } else {
+                alert('Input fields cannot be blank!');
+            }
+        }
+
+        /* Resets the title and name to their original values. */
+        function ResetContent() {
+            /* Resets the title to its default text. */
+            document.getElementById('title').innerHTML = `MY ASSESSMENT TITLE`;
+            /* Resets the full name to its default text. */
+            document.getElementById('fullName').innerHTML = `MY FULL NAME`;
+            /* Clears the value of the newTitle input field. */
+            newTitle.value = "";
+            /* Clears the value of the newName input field. */
+            newName.value = "";
+        }
+
+        /* Adds an event listener that runs when the user tries to refresh the page. */
+        window.addEventListener('beforeunload', (event) => {
+            /* Clears the value of the newTitle input field. */
+            newTitle.value = "";
+            /* Clears the value of the newName input field. */
+            newName.value = "";
+        });
+    </script>
+</body>
+</html>
