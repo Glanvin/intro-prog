@@ -24,9 +24,23 @@ a {
     padding: 12px;
 }
 
-.activities-box {
+.term-box {
+    display: flex;
+    padding: 8px;
+}
+
+.midterm-box, .prelim-box {
+    margin: 4px;
     background: cornflowerblue;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 4px;
     padding: 12px;
+}
+
+.site-version {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 8px;
+    font-size: 1.1rem;
 }
