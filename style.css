@@ -14,6 +14,20 @@ a {
     color: antiquewhite;
 }
 
+a:hover {
+    color: aquamarine;
+}
+
+#prelim-title, #midterm-title {
+    transition: all 0.5s ease-out;
+}
+
+#prelim-title:hover, #midterm-title:hover {
+    color: aqua;
+    transition: all 0.5s ease-in;
+    transform: scale(1.1);
+}
+
 .content-box {
     background: mediumslateblue;
     display: flex;
@@ -22,6 +36,7 @@ a {
     align-items: center;
     border-radius: 4px;
     padding: 12px;
+    user-select: none;
 }
 
 .term-box {
